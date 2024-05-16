@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div id="container">
+        <img src="" alt="">
+        <div class="box">
+            <h1>Create Account</h1>
+            <form>
+                <input type="text" name="" id="name" placeholder="enter full name" required>
+                <input type="email" name="" id="email" placeholder="enter email" required>
+                <input type="number" name="" id="mobile" placeholder="phone number" required>
+                <input type="password" name="" id="password" placeholder="enter password" required>
+                <input type="submit" name="" id="signin" value="Create account">
+            </form>
+            
+            <p>Already have an account <a href="login.html.html" class="login">log-in</a></p>
+
+            
+
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", mySignIn)
+    userdata=JSON.parse(localStorage.getItem("userDetail")) || [];
+    function mySignIn()
+    {
+        event.preventDefault();
+
+        var name1=document.querySelector("#name").value;
+        var email1=document.querySelector("#email").value;
+        var mobile1=document.querySelector("#mobile").value;
+        var pass=document.querySelector("#password").value;
+
+        
+        var obj={
+            name:name1,
+            email: email1,
+            mobile:mobile1,
+            password: pass
+        };
+        userdata.push(obj);
+        localStorage.setItem("userDetail",JSON.stringify(userdata));
+        alert("Signup Successful");
+        window.open("login.html.html");
+        
+    }
+</script>
